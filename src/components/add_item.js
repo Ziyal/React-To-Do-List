@@ -1,27 +1,44 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class AddItem extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            term: ''
+            item: ''
         }
+
+        // bind context
+        this.onInputChange = this.onInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     render() {
         return (
             <div className="list-item-input">
-                <input 
-                    value={this.state.term}
-                    onChange={event => this.onInputChange(event.target.value)} />
+                <form onSubmit={this.handleSubmit}>
+                    <input 
+                        value={this.state.item}
+                        onChange={this.onInputChange} />
+                </form>
             </div>
         )
     }
 
-    onInputChange(term) {
-        this.setState({term})
+    // updates state when input is changed
+    onInputChange(event) {
+        this.setState({ item: event.target.value});
+    }
+
+    // when form is submitted, add item to list
+    handleSubmit(event) {
+        event.preventDefault();
+        // pass item to index.js
+        this.props.onFormSubmit(this.state.item);
+        // reset input
+        this.setState({ item: '' });
     }
 }
+
 
 export default AddItem;

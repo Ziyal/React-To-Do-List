@@ -11,13 +11,24 @@ class App extends Component {
       list_items: [{description: "Fold laundry", status: false}, {description: "Go grocery shopping", status: false}]
     }
 
+    this.updateList = this.updateList.bind(this);
+  }
+
+  
+
+  updateList(item) {
+    console.log(item);
+
+    let list = this.state.list_items;
+    list.push({description: item, status: false});
+    this.setState({list_items: list })
   }
 
   render() {
     return (
       <div>
         <h1>To-Do List</h1>
-        <AddItem />
+        <AddItem onFormSubmit={this.updateList}/>
         <List list_items={this.state.list_items}/>
       </div>
     )
