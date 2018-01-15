@@ -3,7 +3,11 @@ import ListItem from './list_item';
 
 const List = (props) => {
   const ListItems = props.list_items.map((item) => {
-    return <ListItem key={item.description} item={item}/>
+    return <ListItem 
+                key={item.description} 
+                item={item}
+                onCheckboxChange={props.onCheckboxChange}
+            />
   })
   return (
     <div className="list-container">

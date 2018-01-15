@@ -1,0 +1,41 @@
+body {
+    background-color: #EFEFEF !important;
+}
+
+.container {
+    background-color: white;
+    box-shadow: 4px 4px 10px #e5e5e5;
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 600px !important;
+}
+
+.title {
+    text-align: center;
+}
+
+
+/* ----- FORM ----- */
+.add-item-input {
+    /*text-align: center;*/
+}
+
+
+.add-item-input input {
+    width: 60%;
+}
+
+
+/* ----- LIST ----- */
+ul {
+    list-style: none;
+}
+
+.check {
+    text-decoration: line-through;
+}
+
+.uncheck {
+    text-decoration: none;
+}
+

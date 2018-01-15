@@ -15,9 +15,10 @@ class AddItem extends Component {
 
     render() {
         return (
-            <div className="list-item-input">
+            <div className="add-item-input form-group align-items-center">
                 <form onSubmit={this.handleSubmit}>
                     <input 
+                        className="form-control"
                         value={this.state.item}
                         onChange={this.onInputChange} />
                 </form>

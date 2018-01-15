@@ -1,9 +1,17 @@
 import React from 'react';
 
-const ListItem = ({item}) => {
+const ListItem = ({item, onCheckboxChange}) => {
     return (
-        <li>{item.description}
-            <input type="checkbox" />
+        <li>
+            <div className="checkbox">
+                <input 
+                    type="checkbox" 
+                    checked={item.isChecked} 
+                    onChange={() => onCheckboxChange(item)}
+                />
+            </div>
+
+            <div className={"list-item " + (item.isChecked ? "check" : "uncheck")}>{item.description}</div>
 
         </li>
 

@@ -1,5 +1,7 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import keyIndex from 'react-key-index';
 import List from './components/list';
 import AddItem from './components/add_item';
 
@@ -8,28 +10,45 @@ class App extends Component {
     super(props);
 
     this.state = {
-      list_items: [{description: "Fold laundry", status: false}, {description: "Go grocery shopping", status: false}]
+      list_items: [{id: 1, description: "Fold laundry", isChecked: false}, {id: 2, description: "Water plants", isChecked: true}, {id: 3, description: "Go grocery shopping", isChecked: false}],
+      id_count: 4
     }
 
+    // bind context
     this.updateList = this.updateList.bind(this);
+    this.onCheckboxChange = this.onCheckboxChange.bind(this);
   }
 
-  
-
+  // adds new item to list
   updateList(item) {
-    console.log(item);
-
     let list = this.state.list_items;
-    list.push({description: item, status: false});
-    this.setState({list_items: list })
+    list.push({description: item, isChecked: false, id: this.state.id_count});
+    this.setState({list_items: list, id_count: this.state.id_count++ });
   }
 
+  // updated isChecked state when checkbox is clicked
+  onCheckboxChange(task) {
+    let list_items = this.state.list_items;
+    let index = list_items.findIndex(item => item.id === task.id);
+    if(list_items[index].isChecked === true) {
+      list_items[index].isChecked = false;
+    } else {
+      list_items[index].isChecked = true;
+    }
+    this.setState({list_items});
+  }
+  
   render() {
     return (
       <div>
-        <h1>To-Do List</h1>
+        <h1 className="title">To-Do List</h1>
         <AddItem onFormSubmit={this.updateList}/>
-        <List list_items={this.state.list_items}/>
+        <div className="list-container">
+          <List 
+              list_items={this.state.list_items}
+              onCheckboxChange={this.onCheckboxChange}
+          />
+        </div>
       </div>
     )
   }
