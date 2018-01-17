@@ -15,12 +15,25 @@ class AddItem extends Component {
 
     render() {
         return (
-            <div className="add-item-input form-group align-items-center">
+            <div className="add-item-input form-group">
                 <form onSubmit={this.handleSubmit}>
-                    <input 
+                    {/*<input 
                         className="form-control"
                         value={this.state.item}
-                        onChange={this.onInputChange} />
+                        onChange={this.onInputChange} />*/}
+
+
+                        <div className="input-group">
+                            <input 
+                                className="form-control"
+                                value={this.state.item}
+                                onChange={this.onInputChange} />
+
+                            <span className="input-group-btn">
+                                <button className="btn btn-secondary" type="button">Add Task</button>
+                            </span>
+                        </div>
+
                 </form>
             </div>
         )

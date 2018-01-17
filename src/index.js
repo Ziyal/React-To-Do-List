@@ -1,15 +1,20 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import keyIndex from 'react-key-index';
 import List from './components/list';
 import AddItem from './components/add_item';
 
+const Timestamp = require('react-timestamp');
+
 class App extends Component {
   constructor(props) {
     super(props);
+    
+    const nameOfDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     this.state = {
+      // month, day, year, day of week
+      date: [new Date().getMonth(), new Date().getDate(), new Date().getFullYear(), nameOfDay[new Date().getDay()]],
       list_items: [{id: 1, description: "Fold laundry", isChecked: false}, {id: 2, description: "Water plants", isChecked: true}, {id: 3, description: "Go grocery shopping", isChecked: false}],
       id_count: 4
     }
@@ -39,9 +44,19 @@ class App extends Component {
   }
   
   render() {
+    const {date} = this.state;
+
     return (
       <div>
-        <h1 className="title">To-Do List</h1>
+        {/*<h1 className="title">To-Do List</h1>*/}
+        {/*<h2><Timestamp time={this.state.current_date[0]} format="date" /></h2>*/}
+        <div className="header">
+          <h2 className="day-name">{date[3]}</h2>
+          <h2 className="date">{date[0] + 1}/{date[1]}/{date[2]}</h2>
+        </div>
+
+        <hr />
+
         <AddItem onFormSubmit={this.updateList}/>
         <div className="list-container">
           <List 

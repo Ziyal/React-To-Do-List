@@ -1,34 +1,116 @@
 body {
     background-color: #EFEFEF !important;
+    font-family: 'Lato', sans-serif !important;
+}
+
+.title {
+    text-align: center;
+    margin: 20px;
 }
 
 .container {
     background-color: white;
     box-shadow: 4px 4px 10px #e5e5e5;
     border-radius: 10px;
-    padding: 15px;
-    max-width: 600px !important;
+    padding: 5px 15px 15px 15px;
+    max-width: 500px !important;
 }
 
-.title {
-    text-align: center;
+/* ----- HEADER -----*/
+.header {
+    display: block;
+    height: 40px;
+    margin: 0px 15px 0px 15px;
 }
+
+.day-name {
+    display: inline-block;
+    width: 40%;
+    font-size: 24px;
+    margin: 0 auto;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.date {
+    display: inline-block;
+    text-align: right;
+    margin-right: 10px;
+    width: 40%;
+    font-style: italic;
+    font-size: 16px;
+}
+
+hr {
+    width: 85%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+}
+
 
 
 /* ----- FORM ----- */
 .add-item-input {
     /*text-align: center;*/
+
+}
+/*
+.add-item-input form {
+        display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 .add-item-input input {
     width: 60%;
-}
+}*/
 
 
 /* ----- LIST ----- */
 ul {
     list-style: none;
+    padding: 0px;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+}
+
+.checkbox {
+    width: 35px;
+}
+
+.list-item {
+
+}
+
+input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+    margin: 5px 10px 5px 5px;
+}
+
+.delete-btn {
+    /*background-color: #ededed;*/
+    transition: all .6s ease;
+    color: #ededed;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.delete-btn:hover {
+    background-color: #d1d1d1;
+    color: #fff;
+    border-radius: 50%;
+
+    text-align: center;
 }
 
 .check {
@@ -39,3 +121,27 @@ ul {
     text-decoration: none;
 }
 
+/* ----- TRANSITIONS ----- */
+/* defines the beginning state of the enter transition */
+.fade-enter {
+  opacity: 0.01;
+  right: 100px;
+}
+
+/* defines the actual enter transition */
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+  right: 0px;
+}
+
+/* defines the beginning state of the leave transition */
+.fade-leave {
+  opacity: 1;
+}
+
+/* defines the actual leave transition */
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
