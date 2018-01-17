@@ -18,30 +18,29 @@ body {
 
 /* ----- HEADER -----*/
 .header {
-    display: block;
-    height: 40px;
-    margin: 0px 15px 0px 15px;
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    margin: 15px 0px 10px 0px;
 }
 
 .day-name {
-    display: inline-block;
-    width: 40%;
-    font-size: 24px;
+    /*display: inline-block;*/
+    width: 50%;
+    font-size: 16px;
     margin: 0 auto;
-    margin-left: 20px;
-    margin-top: 10px;
 }
 
 .date {
-    display: inline-block;
+    /*display: inline-block;*/
     text-align: right;
-    margin-right: 10px;
-    width: 40%;
+    width: 50%;
     font-style: italic;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 hr {
+    margin: 10px;
     width: 85%;
     border: 0;
     height: 1px;
@@ -98,19 +97,14 @@ input[type=checkbox] {
     transition: all .6s ease;
     color: #ededed;
     font-weight: bold;
-    border-radius: 50%;
     width: 22px;
     height: 22px;
-    text-align: center;
     margin-left: 10px;
 }
 
 .delete-btn:hover {
-    background-color: #d1d1d1;
-    color: #fff;
-    border-radius: 50%;
+    color: #d1d1d1;
 
-    text-align: center;
 }
 
 .check {

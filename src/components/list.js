@@ -9,6 +9,7 @@ const List = (props) => {
                 key={item.description} 
                 item={item}
                 onCheckboxChange={props.onCheckboxChange}
+                deleteTask={props.deleteTask}
             />
   })
   return (

@@ -4,8 +4,6 @@ import keyIndex from 'react-key-index';
 import List from './components/list';
 import AddItem from './components/add_item';
 
-const Timestamp = require('react-timestamp');
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -22,13 +20,16 @@ class App extends Component {
     // bind context
     this.updateList = this.updateList.bind(this);
     this.onCheckboxChange = this.onCheckboxChange.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
   }
 
   // adds new item to list
   updateList(item) {
-    let list = this.state.list_items;
-    list.push({description: item, isChecked: false, id: this.state.id_count});
-    this.setState({list_items: list, id_count: this.state.id_count++ });
+    let list_items = this.state.list_items;
+    let id_count = this.state.id_count;
+    list_items.push({id: id_count, description: item, isChecked: false });
+    id_count++;
+    this.setState({list_items, id_count });
   }
 
   // updated isChecked state when checkbox is clicked
@@ -41,6 +42,18 @@ class App extends Component {
       list_items[index].isChecked = true;
     }
     this.setState({list_items});
+  }
+
+  deleteTask(taskToDelete) {
+    // let list_items = this.state.list_items;
+    // let index = list_items.findIndex(task => task.id === taskToDelete.id);
+    // list_items.splice(index, 1);
+    // this.setState({list_items});   
+
+    this.setState({list_items: this.state.list_items.filter(function(task) {
+      return task.id !== taskToDelete.id
+    })});
+
   }
   
   render() {
@@ -55,13 +68,14 @@ class App extends Component {
           <h2 className="date">{date[0] + 1}/{date[1]}/{date[2]}</h2>
         </div>
 
-        <hr />
 
         <AddItem onFormSubmit={this.updateList}/>
+        <hr />
         <div className="list-container">
           <List 
               list_items={this.state.list_items}
               onCheckboxChange={this.onCheckboxChange}
+              deleteTask={this.deleteTask}
           />
         </div>
       </div>

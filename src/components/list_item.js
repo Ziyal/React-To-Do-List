@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListItem = ({item, onCheckboxChange}) => {
+const ListItem = ({item, onCheckboxChange, deleteTask}) => {
     return (
         <li>
             {/*<div className="checkbox">*/}
@@ -13,7 +13,7 @@ const ListItem = ({item, onCheckboxChange}) => {
 
             <div className={"list-item " + (item.isChecked ? "check" : "uncheck")}>{item.description}</div>
 
-            <div className="delete-btn">X</div>
+            <div className="delete-btn" onClick={() => deleteTask(item)}>X</div>
 
         </li>
 
