@@ -2,7 +2,6 @@ import React from 'react';
 import ListItem from './list_item';
 import { CSSTransitionGroup } from 'react-transition-group';
 
-
 const List = (props) => {
   const ListItems = props.list_items.map((item) => {
     return <ListItem 

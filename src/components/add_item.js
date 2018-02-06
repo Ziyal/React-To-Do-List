@@ -22,7 +22,6 @@ class AddItem extends Component {
                         value={this.state.item}
                         onChange={this.onInputChange} />*/}
 
-
                         <div className="input-group">
                             <input 
                                 className="form-control"
@@ -33,7 +32,6 @@ class AddItem extends Component {
                                 <button className="btn btn-secondary" type="button">Add Task</button>
                             </span>
                         </div>
-
                 </form>
             </div>
         )
@@ -53,6 +51,5 @@ class AddItem extends Component {
         this.setState({ item: '' });
     }
 }
-
 
 export default AddItem;

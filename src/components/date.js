@@ -1,4 +1,3 @@
-
 import React, { Component, PropTypes } from 'react';
 
 class Clock extends React.Component {
@@ -25,7 +24,7 @@ class Clock extends React.Component {
   }
 
   render() {
-      const {date} = this.state;
+    const {date} = this.state;
 
     return (
         <div className="header">
