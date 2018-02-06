@@ -4,7 +4,7 @@ __Built With:__
 * React
 * Bootstrap/CSS
 
-![React To-Do List](https://github.com/Ziyal/React-To-Do-List/blob/master/static/animation.gif "Weather Watch")
+![React To-Do List](https://github.com/Ziyal/React-To-Do-List/blob/master/static/todoListAnimation.gif "Weather Watch")
 
 __To-Do:__ 
 * ~~Create "Add Task" component~~
